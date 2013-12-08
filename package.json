@@ -1,0 +1,22 @@
+{
+  "name": "hipbot",
+  "version": "0.0.1",
+  "description": "HipChat bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "n/a"
+  },
+  "author": "Jose Fernandez",
+  "license": "MIT",
+  "dependencies": {
+    "wobot": "~0.8.1",
+    "hapi": "~1.20.0"
+  },
+  "engines": {
+    "node": "0.10.22"
+  }
+}

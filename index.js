@@ -22,6 +22,7 @@ bot.onConnect(function () {
 bot.onMessage("!temp", function (channel, from, message) {
   console.log("Received !temp command");
   var url = agentUrl + "?temp=1";
+  console.log("Sending GET: " + url);
 
   https.get(url, function(res) {
     console.log("Got response: " + res.statusCode);

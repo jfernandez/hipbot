@@ -44,6 +44,7 @@ server.route({
   path: '/hipchat',
   handler: function (request) {
     this.reply(request.query.message);
+    bot.message(room, request.query.message);
   }
 });
 

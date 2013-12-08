@@ -21,7 +21,7 @@ bot.onConnect(function () {
 
 bot.onMessage("!temp", function (channel, from, message) {
   console.log("Received !temp command");
-  var url = agentUrl + "temp=1";
+  var url = agentUrl + "?temp=1";
 
   https.get(url, function(res) {
     console.log("Got response: " + res.statusCode);
@@ -35,8 +35,8 @@ bot.onError(function (condition, text, stanza) {
 });
 
 // Create a server with a host and port
-var port = parseInt(process.env.PORT, 10) || 8080;
-var server = Hapi.createServer('localhost', port);
+var port = parseInt(process.env.NODE_PORT, 10) || 8080;
+var server = Hapi.createServer('localhost', 8080);
 
 // Add the route
 server.route({

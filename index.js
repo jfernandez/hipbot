@@ -55,7 +55,7 @@ server.route({
     this.reply(request.query.message);
     bot.message(room, request.query.message);
 
-    twit.updateStatus(message, function (data) {
+    twit.updateStatus(request.query.message, function (data) {
       console.log("Sent to twitter");
     });
   }

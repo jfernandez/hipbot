@@ -1,11 +1,19 @@
-var wobot = require('wobot');
-var https = require('https');
-var Hapi  = require('hapi');
+var wobot    = require('wobot');
+var https    = require('https');
+var Hapi     = require('hapi');
+var ntwitter = require('ntwitter');
 
 var room = process.env.HIPCHAT_ROOM;
 var botJid = process.env.HIPCHAT_JIB;
 var botPw = process.env.HIPCHAT_PW;
 var agentUrl = process.env.EI_AGENT_URL;
+
+var twit = new ntwitter({
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token_key: process.env.TOKEN_KEY,
+  access_token_secret: process.env.TOKEN_SECRET
+});
 
 var bot = new wobot.Bot({
   jid: botJid,
@@ -46,6 +54,10 @@ server.route({
   handler: function (request) {
     this.reply(request.query.message);
     bot.message(room, request.query.message);
+
+    twit.updateStatus(message, function (data) {
+      console.log("Sent to twitter");
+    });
   }
 });
 

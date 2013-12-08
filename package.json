@@ -14,7 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "wobot": "~0.8.1",
-    "hapi": "~1.20.0"
+    "hapi": "~1.20.0",
+    "ntwitter": "~0.5.0"
   },
   "engines": {
     "node": "0.10.22"
